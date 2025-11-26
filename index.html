@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoloTrans – Cape Town</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <!-- Mobile menu toggle -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">
+        <span class="logo-mark">MoloTrans</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#trip">Take a Trip</a></li>
+          <li><a class="btn btn--outline" href="#contact">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="tours" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1 class="hero-title">MoloTrans</h1>
+
+      <svg class="plane-path" viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M10,110 C120,10 280,10 390,110" stroke="#fff" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+        <polygon points="380,100 395,110 380,120 385,110" fill="#fff"/>
+      </svg>
+
+      <a href="#about" class="scroll-down" aria-label="Scroll to About section">
+        <span class="arrow"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Short tagline -->
+  <section class="tagline">
+    <div class="container">
+      <p>Let us take you off the beaten path and into the heart of the Cape Winelands —
+where every journey is rich with flavor, culture, and unforgettable moments.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about dark">
+    <div class="container narrow">
+      <h2 class="section-title">About Us</h2>
+      <p>
+        "Where to next?" That’s the first thing we ask when you reach out — and your answer is where the journey begins.
+Whether it’s a scenic escape, Winelands tours or a city adventure, we’ll get you there in comfort and style — all at unbeatable rates.
+      </p>
+      <p>
+        If guided tours aren’t your thing, why not explore at your own pace with our shuttle services?
+They offer a convenient and flexible way to travel between destinations—no tour guide required
+      </p>
+
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAKE A TRIP -->
+  <section id="trip" class="trip">
+    <div class="container">
+      <h2 class="section-title center">Take a Trip with Us</h2>
+
+      <div class="trip-grid">
+        <div class="polaroids">
+          <figure class="polaroid rotate-l">
+            <img src="images/images.jpg" alt="Colorful beach huts" />
+            <figcaption>Travel Essentials</figcaption>
+          </figure>
+
+          <figure class="polaroid rotate-r">
+            <img src="images/shot-franschhoek-wine-town-during-260nw-1575147766.webp" alt="Vineyard" />
+            <figcaption>Winelands</figcaption>
+          </figure>
+
+          <figure class="polaroid rotate-l">
+            <img src="images/vineyard-landscape-sunset-mountains-stellenbosch-260nw-2292829147.webp" alt="Coastline" />
+            <figcaption>Winelands</figcaption>
+          </figure>
+        </div>
+
+        <div class="trip-list">
+          <h3 class="trip-subtitle">Tour Includes:</h3>
+          <ul class="bullet-list">
+            <li>Table Mountain</li>
+            <li>V&A Waterfront</li>
+            <li>Camps Bay &amp; Clifton</li>
+            <li>Signal Hill</li>
+            <li>Lions Head</li>
+            <li>Boulders Beach</li>
+            <li>Chapman's Peak Drive</li>
+            <li>Franschhoek</li>
+            <li>Stellenbosch</li>
+          </ul>
+
+          <a id="book" href="#contact" class="btn btn--accent">Book Your Tour Today!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section id="contact" class="booking">
+    <div class="container narrow">
+      <h2 class="section-title center">Book via WhatsApp</h2>
+      <form id="bookingForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="pickup">Pickup Location:</label>
+        <input type="text" id="pickup" required placeholder="Click on the map below" />
+
+        <div id="osm-map" style="width:100%;height:300px;margin-bottom:1em;border-radius:8px;"></div>
+
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" required />
+
+        <label for="tour">Tour Option:</label>
+        <select id="tour" required>
+          <option value="">Select a Tour</option>
+          <option value="Bespoke Winelands Tour">Winelands Tour</option>
+          <option value="Cape Peninsula Tour">Cape Peninsula Tour</option>
+          <option value="City & Table Mountain">City & Table Mountain</option>
+          <option value="Airport Transfer">Airport Transfer</option>
+            <option value="Private Shuttle">Private Shuttle</option>
+        </select>
+
+        <button type="submit" class="btn btn--accent">Send Booking via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer dark">
+    <div class="container">
+      <p>&copy; <span id="year"></span> MoloTrans • Cape Town, South Africa</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      document.body.classList.toggle('nav-open');
+    });
+
+    nav.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      })
+    );
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const bookingForm = document.getElementById('bookingForm');
+    bookingForm?.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const pickup = document.getElementById('pickup').value;
+      const date = document.getElementById('date').value;
+      const tour = document.getElementById('tour').value;
+
+      const message = `Hello, my name is ${name}. I'd like to book a ${tour} on ${date}. Pickup from ${pickup}.`;
+
+      const whatsappURL = `https://wa.me/27710045033?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+
+      // Reset booking fields
+      bookingForm.reset();
+    });
+
+    // OpenStreetMap + Leaflet Picker
+    document.addEventListener('DOMContentLoaded', function () {
+      const map = L.map('osm-map').setView([-33.9249, 18.4241], 10); // Cape Town
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      let marker;
+      map.on('click', function(e) {
+        if (marker) map.removeLayer(marker);
+        marker = L.marker(e.latlng).addTo(map);
+
+        // Reverse geocode using Nominatim
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById('pickup').value = data.display_name || `${e.latlng.lat}, ${e.latlng.lng}`;
+          })
+          .catch(() => {
+            document.getElementById('pickup').value = `${e.latlng.lat}, ${e.latlng.lng}`;
+          });
+      });
+    });
+  </script>
+</body>
+</html>
