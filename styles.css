@@ -50,7 +50,7 @@ h1,h2,h3{
 
 .section-title{
   font-size:2.5rem;
-  margin-bottom:1.5rem;
+  margin-top:4.5rem;
 }
 
 p{
@@ -144,8 +144,8 @@ body.nav-open .hamburger span:nth-child(3){
 /* ====== Hero ====== */
 .hero{
   position:relative;
-  min-height:100vh;
-  background:#111 url("https://images.unsplash.com/photo-1562324928-5fe429f8495d?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
+  min-height:60vh;
+  background:#111;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -156,11 +156,42 @@ body.nav-open .hamburger span:nth-child(3){
 }
 .hero-content{
   position:relative;
-  text-align:left;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
-.hero-title{
-  font-size:5rem;
-  letter-spacing:.02em;
+.hero-title {
+  font-size: 5rem;
+  letter-spacing: .02em;
+  margin-top: 6rem;      /* Increased top margin for visibility below header */
+  margin-bottom: 1rem;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+/* Hero figure styles */
+.hero-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*margin-top: 2.5rem;         /* Add space below header */
+  margin-bottom: 1.5rem;
+  max-width: 350px;
+  width: 100%;
+  position:center;
+}
+
+.hero-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  display: block;
 }
 
 /* Plane path */
@@ -327,7 +358,7 @@ body.nav-open .hamburger span:nth-child(3){
 
 /* ====== Responsive ====== */
 @media (max-width: 1024px){
-  .hero-title{ font-size:4.2rem; }
+  .hero-title{ font-size:4.2rem; margin-top:5rem; }
   .trip-grid{
     grid-template-columns:1fr;
   }
@@ -340,7 +371,7 @@ body.nav-open .hamburger span:nth-child(3){
 }
 
 @media (max-width: 768px){
-  .hero-title{ font-size:3.6rem; }
+  .hero-title{ font-size:3.6rem; margin-top:4.5rem; }
   .section-title{ font-size:2rem; }
 
   .hamburger{ display:block; }
@@ -362,6 +393,6 @@ body.nav-open .hamburger span:nth-child(3){
 }
 
 @media (max-width: 480px){
-  .hero-title{ font-size:3rem; }
+  .hero-title{ font-size:3rem; margin-top:4rem; }
   .plane-path{ display:none; }
 }
